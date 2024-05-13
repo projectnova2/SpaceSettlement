@@ -60,6 +60,7 @@ section h2 {
 
 video {
   width: 100%;
+  max-height: calc(100vh - 60px); /* Maintain aspect ratio and avoid overlap */
   height: auto; /* Maintain aspect ratio */
   display: block;
 }
