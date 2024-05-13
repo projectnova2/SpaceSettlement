@@ -1,8 +1,8 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Arial', sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #2c2c2c; /* Dark gray background */
+  background: url('../images/starry_background.png') repeat center center; /* Dark space with stars background */
   overflow-x: hidden; /* Prevent horizontal scrolling */
   color: white; /* Ensure text is readable on dark background */
 }
@@ -23,12 +23,13 @@ nav ul {
   margin: 0;
   padding: 0;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-around; /* Center the items in desktop mode */
+  padding-left: 1rem; /* Add padding to the left */
 }
 
 nav ul li {
   flex: 1;
-  text-align: center;
+  text-align: center; /* Center the text in desktop mode */
 }
 
 nav ul li a {
@@ -36,7 +37,7 @@ nav ul li a {
   text-decoration: none;
   font-weight: bold;
   display: block;
-  padding: 1rem 0;
+  padding: 1rem 0.5rem; /* Adjust padding for smaller screens */
 }
 
 main {
@@ -51,11 +52,33 @@ section {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #2c2c2c; /* Match the background color of the body */
+  background-color: transparent; /* Transparent background to show starry background */
+}
+
+section#home {
+  background: url('../images/home.png') no-repeat center center/cover; /* Ensure correct path and settings */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+section#home h1 {
+  font-family: 'Tahoma', sans-serif;
+  font-weight: bold;
+  font-style: italic;
+  font-size: 6rem; /* Increase the size of the title */
+  margin: 0; /* Remove default margin */
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding-top: 60px; /* Adjust for the height of the header */
 }
 
 section h2 {
   margin: 1rem 0; /* Add margin above and below the title */
+  font-size: 2rem;
 }
 
 video {
@@ -63,4 +86,55 @@ video {
   max-height: calc(100vh - 60px); /* Maintain aspect ratio and avoid overlap */
   height: auto; /* Maintain aspect ratio */
   display: block;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  nav ul {
+      flex-direction: column; /* Stack the menu items vertically */
+      padding-left: 1rem; /* Add padding to the left */
+      justify-content: flex-start; /* Align items to the left in mobile mode */
+  }
+  nav ul li {
+      text-align: left; /* Align text to the left in mobile mode */
+  }
+  nav ul li a {
+      padding: 1rem; /* Increase padding for touch targets */
+  }
+  section#home h1 {
+      font-size: 3rem; /* Decrease font size on smaller screens */
+  }
+  section h2 {
+      font-size: 1.5rem; /* Decrease font size for section titles */
+  }
+  video {
+      max-height: calc(100vh - 60px); /* Ensure videos still fit within the viewport */
+  }
+}
+
+@media (max-width: 480px) {
+  nav ul {
+      transform: translateX(-100%); /* Hide the menu off-screen */
+      transition: transform 0.3s ease; /* Smooth transition */
+      position: fixed;
+      top: 60px; /* Below the header */
+      left: 0;
+      width: 100%;
+      background-color: #1a1a1a; /* Match the header background */
+      height: 100%; /* Full height */
+      overflow-y: auto; /* Scroll if needed */
+      padding-left: 1rem; /* Add padding to the left */
+  }
+  nav ul.show {
+      transform: translateX(0); /* Show the menu */
+  }
+  nav ul li a {
+      padding: 1rem; /* Further adjust padding for very small screens */
+  }
+  section#home h1 {
+      font-size: 2rem; /* Further decrease font size */
+  }
+  section h2 {
+      font-size: 1.25rem; /* Further decrease font size */
+  }
 }
