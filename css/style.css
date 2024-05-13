@@ -62,6 +62,7 @@ section#home {
   justify-content: center;
   align-items: center;
   text-align: center;
+  padding-top: 60px; /* Adjust for the height of the header */
 }
 
 section#home h1 {
@@ -73,7 +74,6 @@ section#home h1 {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  padding-top: 60px; /* Adjust for the height of the header */
 }
 
 section h2 {
@@ -117,13 +117,14 @@ video {
       transform: translateX(-100%); /* Hide the menu off-screen */
       transition: transform 0.3s ease; /* Smooth transition */
       position: fixed;
-      top: 60px; /* Below the header */
+      top: 0; /* Remove margin at the top */
       left: 0;
       width: 100%;
       background-color: #1a1a1a; /* Match the header background */
       height: 100%; /* Full height */
       overflow-y: auto; /* Scroll if needed */
       padding-left: 1rem; /* Add padding to the left */
+      padding-top: 60px; /* Add padding at the top to account for header */
   }
   nav ul.show {
       transform: translateX(0); /* Show the menu */
@@ -131,8 +132,13 @@ video {
   nav ul li a {
       padding: 1rem; /* Further adjust padding for very small screens */
   }
+  section#home {
+      padding-top: 0; /* Remove padding at the top */
+  }
   section#home h1 {
       font-size: 2rem; /* Further decrease font size */
+      top: 50%; /* Center vertically */
+      transform: translateY(-50%);
   }
   section h2 {
       font-size: 1.25rem; /* Further decrease font size */
