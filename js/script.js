@@ -42,6 +42,16 @@ document.addEventListener("DOMContentLoaded", function() {
       }
   }
 
+  function playVideoFromHash() {
+      const hash = window.location.hash;
+      if (hash) {
+          const targetVideo = document.querySelector(`${hash} video`);
+          if (targetVideo) {
+              targetVideo.play();
+          }
+      }
+  }
+
   for (const link of links) {
       link.addEventListener("click", function(e) {
           const href = this.getAttribute("href");
@@ -64,11 +74,23 @@ document.addEventListener("DOMContentLoaded", function() {
           if (window.innerWidth < 480) {
               nav.classList.remove("show");
           }
+
+          // Play video if the link points to a video section
+          const targetVideo = document.querySelector(`#${targetId} video`);
+          if (targetVideo) {
+              targetVideo.play();
+          }
       });
   }
 
   window.addEventListener("scroll", handleScroll);
   window.addEventListener("mousemove", handleMouseMove);
+  window.addEventListener("hashchange", playVideoFromHash);
+
+  // Ensure video plays on page load if there's a hash
+  window.addEventListener("load", function() {
+      playVideoFromHash();
+  });
 
   // Swipe to toggle menu visibility on mobile
   let touchStartX = 0;
