@@ -117,7 +117,7 @@ footer .footer-center {
   margin: 2rem 0;
   padding: 0 1rem;
   width: 100%;
-  max-width: 1000px;
+  max-width: 100rem;
 }
 
 footer .footer-center p {
@@ -135,7 +135,7 @@ footer .footer-row {
   display: flex;
   justify-content: space-between;
   width: 100%;
-  max-width: 1000px;
+  max-width: 100rem;
   padding: 0 1rem;
 }
 
@@ -158,8 +158,9 @@ footer a:hover {
   text-decoration: underline; /* Underline links on hover */
 }
 
-footer-images {
-  width: 2rem !important;
+.footer-images {
+  min-width: 10rem;
+  display: flex;
 }
 
 .fa {
